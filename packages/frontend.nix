@@ -63,7 +63,7 @@ let
 
   frontendPnpmDeps =
     fetchWorkspaceDeps "penpot-frontend-frontend" "source/frontend" frontendSrc
-      "sha256-/2VKrkoBfNSQWh9MzN9zY8mZvKIIEtnuSyYxCOsWk94=";
+      "sha256-33ufB7WxfJny+k8dWB9uYAq9RYbW2IN/dD9Uysk6iG8=";
   pluginsPnpmDeps =
     fetchWorkspaceDeps "penpot-frontend-plugins" "source/plugins" pluginsSrc
       "sha256-4q5Mq+TgTU1l5BTdJZJ0F5falMIdQmGpw8t0LTh9g30=";
