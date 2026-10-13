@@ -299,14 +299,14 @@ let
     services.nginx.recommendedGzipSettings = mkDefault true;
     services.nginx.virtualHosts.${vhostName} = {
       serverName = vhostName;
-      listen = mkIf hasListenPort [
+      listen = mkIf true [
         {
-          addr = "0.0.0.0";
-          port = parsedPublicUri.port;
+          addr = "127.0.0.1";
+          port = cfg.port;
         }
         {
           addr = "[::]";
-          port = parsedPublicUri.port;
+          port = cfg.port;
         }
       ];
       forceSSL = cfg.nginx.forceHttps;
@@ -506,6 +506,10 @@ in
       type = types.nullOr types.str;
       default = null;
       example = "https://penpot.example.com";
+    };
+
+    port = mkOption {
+      type = types.port;
     };
 
     flags = mkOption {
@@ -867,7 +871,7 @@ in
               {option}`services.nginx.virtualHosts.<name>.serverAliases`).
             '';
             type = types.str;
-            default = "http://${vhostName}${optionalString hasListenPort ":${toString parsedPublicUri.port}"}";
+            default = "http://${vhostName}${optionalString false ":${toString parsedPublicUri.port}"}";
             defaultText = lib.literalExpression ''
               "http://" + host of publicUri + (if it has an explicit port then ":<port>" else "")
             '';
