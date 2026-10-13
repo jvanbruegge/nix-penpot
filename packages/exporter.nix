@@ -68,7 +68,7 @@ let
     pnpm = pnpm_11;
     # fetcherVersion 4 is required for pnpm 11 (older fetchers are rejected).
     fetcherVersion = 4;
-    hash = "sha256-vDZfXXzx4SDhSBdEFq/fQ1WJ3pleFz3QQIU8cSQ53rs=";
+    hash = "sha256-nstSX/FkxF0Qwbf2Rpsshe4D1jxEd3tByAG7lZUFhrc=";
   };
 
   # Offline Clojure dependencies: eval-time cache from deps-lock.json
