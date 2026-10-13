@@ -578,6 +578,10 @@ in
       };
     };
 
+    environmentFile = mkOption {
+      type = types.str;
+    };
+
     telemetry.enable = mkOption {
       description = ''
         Whether to enable the anonymized usage telemetry reports
@@ -976,6 +980,7 @@ in
           User = penpotUser;
           Group = penpotGroup;
           StateDirectory = "penpot";
+          EnvironmentFile = cfg.environmentFile;
           # A custom storage.fs.directory may live outside the state
           # directory; grant write access explicitly. Note that the nginx
           # vhost must be able to READ this path as well.
